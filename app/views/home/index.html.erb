@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+Our Pacemaker Data:
+
+<table border="5" style="width:800px; background-color:#FFF;">
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Datapoint</th>
+        <th colspan="2"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @data.each do |dat| %>
+        <tr>
+          <td style="width:100px;"><%= dat.recieved_at%></td>
+          <td style="width:700px;"><%= dat.beat %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</html>
