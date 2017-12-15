@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 20171206065805) do
   create_table "datapoints", force: :cascade do |t|
     t.integer  "pacemaker_id"
     t.integer  "beat"
+    t.integer  "sign"
     t.datetime "recieved_at"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false

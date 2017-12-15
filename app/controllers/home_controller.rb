@@ -12,10 +12,15 @@ class HomeController < ApplicationController
 
 	def addPoint
 		@pacemaker = Pacemaker.all.first
-		@newdata = Datapoint.new(beat: params[:beats], recieved_at: Time.now)
-		@newdata.save
-		@pacemaker.datapoints << @newdata
-		@pacemaker.save
+		puts(params[:beats])
+		item = params[:beats].scan(/(\d+)-(\d+)/)
+		puts(item)
+		for i in item do
+			@newdata = Datapoint.new(beat: i[0], sign: i[1], recieved_at: Time.now)
+			@newdata.save
+			@pacemaker.datapoints << @newdata
+			@pacemaker.save
+		end
 		redirect_to("/")
 	end
 

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'home#index'
 
-  get '/add/:beats/:ok' => 'home#addPoint'
+  get '/add/:beats' => 'home#addPoint'
 
   get '/add/' => 'home#clear'
 

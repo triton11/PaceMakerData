@@ -3,6 +3,7 @@ class CreateDatapoints < ActiveRecord::Migration
     create_table :datapoints do |t|
       t.belongs_to :pacemaker, index: true
       t.integer :beat
+      t.integer :sign
       t.datetime :recieved_at
       t.timestamps null: false
     end

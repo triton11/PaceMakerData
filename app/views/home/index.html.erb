@@ -6,16 +6,17 @@ Our Pacemaker Data:
     <thead>
       <tr>
         <th>Time</th>
-        <th>Datapoint</th>
-        <th colspan="2"></th>
+        <th>Beat</th>
+        <th>Problem?</th>
       </tr>
     </thead>
 
     <tbody>
       <% @data.each do |dat| %>
         <tr>
-          <td style="width:100px;"><%= dat.recieved_at%></td>
-          <td style="width:700px;"><%= dat.beat %></td>
+          <td style="width:300px;"><%= dat.recieved_at%></td>
+          <td style="width:300px;"><%= dat.beat %></td>
+          <td style="width:300px;"><%= dat.sign %></td>
         </tr>
       <% end %>
     </tbody>
