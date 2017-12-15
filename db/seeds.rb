@@ -5,5 +5,5 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-data = Datapoint.create([{beat: 0, sign: 0}])
+data = Datapoint.create([{beat: 0, sign: " "}])
 Pacemaker.create(datapoints: data)

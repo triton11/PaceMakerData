@@ -16,10 +16,22 @@ class HomeController < ApplicationController
 		item = params[:beats].scan(/(\d+)-(\d+)/)
 		puts(item)
 		for i in item do
-			@newdata = Datapoint.new(beat: i[0], sign: i[1], recieved_at: Time.now)
-			@newdata.save
-			@pacemaker.datapoints << @newdata
-			@pacemaker.save
+			if i[0].to_i >= 300
+				phrase = " "
+				if i[1].to_i == 0
+					phrase = "Normal"
+				end
+				if i[1].to_i == 1
+					phrase = "Slow"
+				end
+				if i[1].to_i == 2
+					phrase = "Fast"
+				end
+				@newdata = Datapoint.new(beat: i[0], sign: phrase, recieved_at: Time.now)
+				@newdata.save
+				@pacemaker.datapoints << @newdata
+				@pacemaker.save
+			end
 		end
 		redirect_to("/")
 	end
